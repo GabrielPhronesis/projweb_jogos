@@ -24,8 +24,8 @@ router.post('/', async (req, res) => {
 
     try{
         await Game.create(game)
-
-        res.status(201).json({message: 'Jogo inserido'})
+        res.redirect('/game')
+        //res.status(201).json({message: 'Jogo inserido'})
 
     } catch(error) {
         res.status(500).json({error: error})
@@ -35,6 +35,14 @@ router.post('/', async (req, res) => {
 
 
 //READ
+router.get('/criarjogo', async(req, res) => {
+    try {
+        res.sendFile(__dirname + "/index.html")
+    } catch (error) {
+        res.status(500).json({error: error})   
+    }
+})
+
 router.get('/', async (req, res) => {
     try {
 
