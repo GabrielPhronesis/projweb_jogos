@@ -1,0 +1,164 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    
+}
+
+/* HEADER */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#tittle {
+    flex-direction: column;
+    line-height: 10px;
+}
+
+h1 {
+    font-weight: 2000;
+}
+
+li {
+    display: inline-block;
+    margin: 20px;
+}
+
+a {
+    color: white
+}
+
+a:hover{
+    color: rgb(106,90,205);
+    transition: 0.3s all;
+}
+
+#cadastro {
+    border: 2px solid rgb(106,90,205);
+    padding: 8px 30px;
+    border-radius: 20px;
+}
+
+#cadastro:hover{
+    background-color: rgb(106,90,205);
+    transition: 0.3s all;
+    color: white;
+}
+/* FINAL DO HEADER */
+
+/* CONTEUDO PAGINA INICIAL */
+h2{
+    margin: 60px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    justify-content: space-around;
+}
+
+.destaque {
+    margin: 15px 0px;
+}
+.destaque h4, p{
+    margin: 0;
+    padding: 2px;
+}
+
+.imagem-jogo{
+    border-radius: 10px;
+}
+
+.nota {
+    display: flex;
+    align-items: center;
+
+}
+#estrela {
+
+    height: 20px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+/* FINAL DO CONTEUDO */
+
+/* FORMULARIO */
+
+form {
+    width: 40%;
+    min-width: 350px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgb(0,0,0,0.3);
+    margin: 80px auto;
+    padding: 20px;
+}
+
+input {
+    min-width: 320px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #c1c1c1;
+    margin-top: 20px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+button {
+    display: block;
+    margin: 5px auto;
+    height: 40px;
+    min-width: 320px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(106,90,205);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    opacity: 0.6;
+}
+
+form h2 {
+    margin: 0;
+    color: Black;
+}
+
+#jogo{
+    margin-top: 50px;
+}
+
+#ao-lado{
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+#descricao {
+    margin-top: 50px;
+}

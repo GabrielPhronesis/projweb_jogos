@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+<body>
+    <h1>Formulario para cadastrar Jogo</h1>
+    <form action="/" method="POST">
+        <label>Nome</label>
+        <input type="text" name="nome"><br><br>
+        <label>Descrição</label>
+        <input type="text" name="descricao"><br><br>
+        <label>Ano</label>
+        <input type="text" name="ano"><br><br>
+        <label>Categoria</label>
+        <input type="text" name="categoria"><br><br>
+
+        <button type="submit" onclick="alert('jogo adicionado')">Novo</button>
+
+
+    </form>
+    <div >
+        <h3 style="display:inline;">Nome</h3>
+        <h3 style="display:inline;">Descricao</h3>
+        <h3 style="display:inline;">Ano</h3>
+        <h3 style="display:inline;">Categoria</h3>
+    </div>
+    
+    <div class="Jogos">
+        <div class="Jogo">
+            <p>Nome</p>
+            <p>Descricao</p>
+            <p>Ano</p>
+            <p>Categoria</p>
+            <button>Editar</button>
+            <button>Excluir</button>
+        </div>
+    </div>  
+    <style>
+        .Jogo p{
+            display: inline;
+        }
+    </style>
+</body>
+</html>

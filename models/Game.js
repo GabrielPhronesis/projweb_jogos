@@ -5,6 +5,7 @@ const Game = mongoose.model('Game', {
     descricao: String,
     ano: String,
     categoria: String,
+    url: String,
     //salary: Number,
     //approved: Boolean,
 })

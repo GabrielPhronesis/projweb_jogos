@@ -43,6 +43,7 @@ router.get('/criarjogo', async(req, res) => {
     }
 })
 
+
 router.get('/', async (req, res) => {
     try {
 

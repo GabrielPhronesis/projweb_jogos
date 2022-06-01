@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const path = require("path")
 
 const PORT = process.env.PORT || 3000
 
@@ -18,11 +19,8 @@ const gameRoutes = require('./routes/gameRoutes')
 
 app.use ('/game', gameRoutes)
 
+app.use((express.static(path.join(__dirname, "public"))))
 
-app.get('/', (req, res) => {
-
-    res.json({message: 'Oi Express!'})
-})
 
 const DB_USER = 'gabriel'
 const DB_PASSWORD = encodeURIComponent('XA0YBqYbQlNawnAC')
