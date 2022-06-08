@@ -6,8 +6,7 @@ const Game = mongoose.model('Game', {
     ano: String,
     categoria: String,
     url: String,
-    //salary: Number,
-    //approved: Boolean,
+
 })
 
 module.exports = Game

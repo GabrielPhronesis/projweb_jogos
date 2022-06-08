@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div id="tittle">
+            <h1>Games</h1>
+            <h1>Division</h1>
+        </div>
+        <ul>
+            <a href="/cadastrojogo"><li >Cadastro de Jogo</li></a>
+            <a href="/cadastrocategoria"><li>Cadastro de Categoria</li></a>
+            <!-- <a href="/html/cadastro.html"><li id="cadastro" >Já tem uma conta?</li></a> -->
+
+        </ul>
+    </header>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/img//undraw_shopping_re_3wst.svg" alt="">
+        </div>
+        <div class="form">
+            <div class="form">
+                <form action="/api/categoria" method="POST">
+                    <h2>Cadastro de Categoria</h2>
+                    <input type="text" name="nome" placeholder="Nome da categoria" required>
+                    
+                    <input type="text" name="url" placeholder="URL da categoria" required>
+
+                    <button type="submit"  onclick="alert('Categoria adicionada')">Cadastrar</button>
+            
+                </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

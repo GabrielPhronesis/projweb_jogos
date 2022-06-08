@@ -4,11 +4,12 @@ const { route } = require('express/lib/application')
 const { append } = require('express/lib/response')
 const Game = require('../models/Game')
 
+const Categoria = require('../models/Categoria')
 
-//CREATE
+//CREATE GAMES
 router.post('/', async (req, res) => {
 
-    const {nome, descricao, ano, categoria} = req.body
+    const {nome, descricao, ano, categoria, url} = req.body
 
     if(!nome){
         res.status(422).json({erro: 'O nome é obrigatorio'})
@@ -19,30 +20,38 @@ router.post('/', async (req, res) => {
         nome,
         descricao,
         ano,
-        categoria
+        categoria,
+        url
     }
 
     try{
         await Game.create(game)
-        res.redirect('/game')
-        //res.status(201).json({message: 'Jogo inserido'})
 
+        await res.redirect('/cadastrojogo')
+        
     } catch(error) {
         res.status(500).json({error: error})
     }
 
 })
 
+// CREATE CATEGORIAS
+router.post('/categoria', async(req, res) => {
+    const {nome, url} = req.body
 
-//READ
-router.get('/criarjogo', async(req, res) => {
-    try {
-        res.sendFile(__dirname + "/index.html")
-    } catch (error) {
-        res.status(500).json({error: error})   
+    const categoria = {
+        nome,
+        url
+    }
+    try{
+        await Categoria.create(categoria)
+        res.redirect('/cadastrocategoria')
+        
+
+    } catch(error) {
+        res.status(500).json({error: error})
     }
 })
-
 
 router.get('/', async (req, res) => {
     try {
@@ -53,6 +62,16 @@ router.get('/', async (req, res) => {
         
     } catch (error) {
         res.status(500).json({error: error})   
+    }
+})
+
+router.get('/categoria', async(req, res) => {
+    try {
+        const categorias = await Categoria.find()
+        
+        res.status(200).json(categorias)
+    } catch (error) {
+        res.status(500).json({error: error})
     }
 })
 
@@ -79,13 +98,14 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     const id = req.params.id
 
-    const {nome, descricao, ano, categoria} = req.body
+    const {nome, descricao, ano, categoria, url} = req.body
 
     const game = {
         nome,
         descricao,
         ano,
-        categoria
+        categoria,
+        url
     }
 
     try{

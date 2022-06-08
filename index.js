@@ -5,21 +5,42 @@ const path = require("path")
 
 const PORT = process.env.PORT || 3000
 
-app.use(
-    express.urlencoded({
-        extended: true,
-    })
-)
-
-app.use(express.json())
 
 
 
 const gameRoutes = require('./routes/gameRoutes')
 
-app.use ('/game', gameRoutes)
+const gamesRoutes = require('./routes/gamesRoutes')
 
-app.use((express.static(path.join(__dirname, "public"))))
+
+
+
+// Configurações
+
+//Body Parser
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+)
+app.use(express.json())
+// View engine
+app.engine('.html', require('ejs').__express);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'html');
+// Public
+app.use(express.static(__dirname + '/public'));
+
+
+
+app.use ('/api', gameRoutes)
+app.use ('/', gamesRoutes)
+
+
+
+
+
+
 
 
 const DB_USER = 'gabriel'
