@@ -27,7 +27,35 @@
             
 
     </main>
-    <p>Deixe seu Comentario</p>
+    
+    <div>
+        
+        <form action="/api/comentario" method="POST">
+            <h2>Avalie o Jogo</h2>
+
+            <select name="nota" id="nota" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <input type="text" name="comentario" placeholder="Comentario" required>
+            <input id="idJogo" type="text" name="idJogo" value="" readonly />
+            
+            <button type="submit">Enviar</button>
+
+
+        </form>
+    </div>
+    <h2>Comentarios:</h2>
+    <div id="comentarios">
+
+
+
+    </div>
     <script src="scripts/renderJogo.js"></script>
 </body>
 </html>

@@ -6,6 +6,9 @@ const Game = require('../models/Game')
 
 const Categoria = require('../models/Categoria')
 
+const Comentario = require('../models/Comentario')
+
+
 //CREATE GAMES
 router.post('/', async (req, res) => {
 
@@ -53,6 +56,25 @@ router.post('/categoria', async(req, res) => {
     }
 })
 
+router.post('/comentario', async(req, res) => {
+    const {nota, comentario, idJogo} = req.body
+
+    const avaliacao = {
+        nota, 
+        comentario, 
+        idJogo
+    }
+    try{
+        await Comentario.create(avaliacao)
+        res.redirect("/")
+        
+
+    } catch(error) {
+        res.status(500).json({error: error})
+    }
+})
+
+
 router.get('/', async (req, res) => {
     try {
 
@@ -73,6 +95,16 @@ router.get('/categoria', async(req, res) => {
     } catch (error) {
         res.status(500).json({error: error})
     }
+})
+
+router.get('/comentario', async(req, res) => {
+    try {
+        const comentarios = await Comentario.find()
+        
+        res.status(200).json(comentarios)
+    } catch (error) {
+        res.status(500).json({error: error})
+    } 
 })
 
 router.get('/:id', async (req, res) => {
