@@ -129,7 +129,8 @@ router.post('/login', async(req, res) => {
     try {
         res.redirect("/destaque")
     } catch(error){
-        res.status(500).json({error: error})
+        res.redirect("/")
+        return
     }
 
 })
