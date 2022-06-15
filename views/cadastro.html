@@ -14,12 +14,6 @@
             <h1>Games</h1>
             <h1>Division</h1>
         </div>
-        <ul>
-            <a href="/"><li >Inicio</li></a>
-            <a href="/categorias"><li >Categorias</li></a>
-            <a href="/jogos"><li >Todos os jogos</li></a>
-            <a href="/cadastro"><li id="cadastro" >Já tem uma conta?</li></a>
-        </ul>
     </header>
     <div class="container">
         <div class="form-image">
@@ -27,7 +21,7 @@
         </div>
         <div class="form">
             <div class="form">
-                <form action="/" method="POST">
+                <form action="/api/cadastro" method="POST">
                     <h2>Cadastro de Usuario</h2>
                     <input type="text" name="nome" placeholder="Nome" required>
     
@@ -35,16 +29,16 @@
     
                     <input type="password" name="senha" placeholder="Senha" required>
             
-                    <button type="submit">Cadastre-se</button>
+                    <button type="submit" onclick="alert('Usuario cadastrado')">Cadastre-se</button>
             
                 </form>
-                <form action="/" method="POST">
+                <form action="/api/login" method="POST">
                     <h2>Login</h2>
                     <input type="text" name="email" placeholder="E-Mail" required>
     
                     <input type="password" name="senha" placeholder="Senha" required>
             
-                    <button type="submit">Cadastre-se</button>
+                    <button type="submit">Login</button>
             
                 </form>
         </div>

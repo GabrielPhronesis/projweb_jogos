@@ -8,6 +8,9 @@ const Categoria = require('../models/Categoria')
 
 const Comentario = require('../models/Comentario')
 
+const Usuario = require('../models/Usuario')
+
+const secret = "abc123"
 
 //CREATE GAMES
 router.post('/', async (req, res) => {
@@ -56,6 +59,8 @@ router.post('/categoria', async(req, res) => {
     }
 })
 
+
+
 router.post('/comentario', async(req, res) => {
     const {nota, comentario, idJogo} = req.body
 
@@ -66,12 +71,67 @@ router.post('/comentario', async(req, res) => {
     }
     try{
         await Comentario.create(avaliacao)
-        res.redirect("/")
+        res.redirect(`/${idJogo}`)
         
 
     } catch(error) {
         res.status(500).json({error: error})
     }
+})
+
+router.post('/cadastro', async(req, res) => {
+    const usuarioexistente = await Usuario.findOne({email: req.body.email})
+
+    const {nome, email, senha} = req.body
+
+    const usuario = {
+        nome,
+        email,
+        senha
+    }
+
+    
+
+    try{
+        if(usuarioexistente){
+            res.redirect("/")
+        } else {
+            await Usuario.create(usuario)
+            res.redirect("/")
+        }
+
+
+    } catch(error) {
+        res.status(500).json({error: error})
+    }
+
+    
+
+})
+
+router.post('/login', async(req, res) => {
+    
+
+    const {email, senha} = req.body
+
+
+
+    const usuarioexistente = await Usuario.findOne({email: email})
+
+    if(!usuarioexistente){
+        res.redirect("/")
+    }
+    
+    if(usuarioexistente.senha != senha){
+        res.redirect("/")
+    } 
+
+    try {
+        res.redirect("/destaque")
+    } catch(error){
+        res.status(500).json({error: error})
+    }
+
 })
 
 

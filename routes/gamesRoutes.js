@@ -6,7 +6,8 @@ const Game = require('../models/Game')
 
 const Categoria = require('../models/Categoria')
 
-router.get('/', function(req, res){
+
+router.get('/destaque', function(req, res){
     res.render('index');
 });
 
@@ -18,9 +19,10 @@ router.get('/jogos', function(req, res) {
     res.render('jogos')
 })
 
-router.get('/cadastro', function(req, res) {
+router.get('/', function(req, res) {
     res.render('cadastro')
 })
+
 
 router.get('/cadastrojogo', function(req, res){
     res.render('cadastrojogo');
