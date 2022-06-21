@@ -8,10 +8,31 @@ let idInput = document.getElementById("idJogo")
 idInput.value = `${id}`
 
 document.addEventListener('DOMContentLoaded', () => {
+    updateNomes()
     updatePosts()
     updateComentarios()
 })
 
+
+function updateNomes() {
+    fetch("/api/usuario").then(res=> {
+        return res.json()
+    }).then(json=>{
+        console.log(json)
+        let postElements = ''
+        let posts = json
+        
+        posts.forEach((post) => {
+            let postElement = `<option value="${post.nome}">${post.nome}</option>`
+            
+
+            postElements += postElement
+
+        })
+
+        document.getElementById("nome").innerHTML = postElements
+    })
+}
 
 
 function updatePosts() {
@@ -62,8 +83,9 @@ function updateComentarios() {
 
             if (post.idJogo == id){
                 postElement = `<div class="comentario">
-                <h3>${post.comentario}</h2>
-                <p>${post.nota}</h3>
+                <h3>${post.nome}</h3>
+                <h4>${post.comentario}</h4>
+                <p>${post.nota}</p>
                 </div> `
             }
             postElements += postElement

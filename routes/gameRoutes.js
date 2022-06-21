@@ -62,12 +62,13 @@ router.post('/categoria', async(req, res) => {
 
 
 router.post('/comentario', async(req, res) => {
-    const {nota, comentario, idJogo} = req.body
+    const {nota, comentario, idJogo, nome} = req.body
 
     const avaliacao = {
         nota, 
         comentario, 
-        idJogo
+        idJogo,
+        nome
     }
     try{
         await Comentario.create(avaliacao)
@@ -136,6 +137,7 @@ router.post('/login', async(req, res) => {
 })
 
 
+
 router.get('/', async (req, res) => {
     try {
 
@@ -168,6 +170,16 @@ router.get('/comentario', async(req, res) => {
     } 
 })
 
+router.get('/usuario', async(req, res) => {
+    try {
+        const usuarios = await Usuario.find()
+        
+        res.status(200).json(usuarios)
+    } catch (error) {
+        res.status(500).json({error: error})
+    } 
+})
+
 router.get('/:id', async (req, res) => {
     const id = req.params.id
 
@@ -186,6 +198,8 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({error: error})   
     }
 })
+
+
 
 //UPDATE
 router.patch('/:id', async (req, res) => {
